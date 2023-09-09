@@ -1,8 +1,4 @@
 
-let ride1PowerElement = document.querySelector("#ride-1-power")
-let ride2PowerElement = document.querySelector("#ride-2-power")
-let ride3PowerElement = document.querySelector("#ride-3-power")
-let ride4PowerElement = document.querySelector("#ride-4-power")
 if (ride1PowerOn === true) {
     ride1PowerElement.style.color = "green"
     ride1PowerElement.textContent = "Power Status: on"
@@ -30,6 +26,15 @@ else {
     ride3PowerElement.textContent = "Power Status: off"
 }
 
+if (ride4PowerOn === true) {
+    ride4PowerElement.style.color = "green"
+    ride4PowerElement.textContent = "Power Status: on"
+}
+else {
+    ride4PowerElement.style.color = "red"
+    ride4PowerElement.textContent = "Power Status: off"
+}
+
 //power is on and all slots work right
 if (ride4PowerOn === true &&
     ride4SlotMachine(1) == "star" &&
@@ -49,19 +54,19 @@ else {
 }
 
 
-let spinButton = document.querySelector("#spin")
-let slot1Div = document.querySelector("#slot-1")
-let slot2Div = document.querySelector("#slot-2")
-let slot3Div = document.querySelector("#slot-3")
+// let spinButton = document.querySelector("#spin")
+// let slot1Div = document.querySelector("#slot-1")
+// let slot2Div = document.querySelector("#slot-2")
+// let slot3Div = document.querySelector("#slot-3")
 
-spinButton.addEventListener("click", function () {
+// spinButton.addEventListener("click", function () {
     //if all match up you win
-    let slot1 = ride4SlotMachine(3)
-    slot1Div.textContent = slot1
-    let slot2 = ride4SlotMachine(3)
-    slot2Div.textContent = slot1
-    let slot3 = ride4SlotMachine(3)
-    slot3Div.textContent = slot1
+    let slot1 = ride4SlotMachine()
+    // slot1Div.textContent = slot1
+    let slot2 = ride4SlotMachine()
+    // slot2Div.textContent = slot1
+    let slot3 = ride4SlotMachine()
+    // slot3Div.textContent = slot1
     let didTheyWin = (slot1 === slot2) && (slot2 === slot3)
 
     if (ride4PowerOn && didTheyWin) {
@@ -70,5 +75,5 @@ spinButton.addEventListener("click", function () {
         }, 500)
 
     }
-})
+// })
 
